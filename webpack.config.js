@@ -6,7 +6,8 @@ module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
-    path: DIST_DIR
+    path: DIST_DIR,
+    publicPath: '/'
   },
   module : {
     loaders : [
@@ -17,11 +18,22 @@ module.exports = {
         query: {
           presets: ['react', 'env']
        }
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'file-loader'
       }
+     
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modulesDirectories: ['node_modules']
-  }
+
+    // modulesDirectories: ['node_modules']
+  },
 };

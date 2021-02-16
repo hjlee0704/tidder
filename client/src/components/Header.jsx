@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-// import logo from "./logo.png";
+import Button from '@material-ui/core/Button';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 
 
@@ -15,10 +17,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  logo: {
-    maxWidth: 40,
-    marginRight: '10px'
-  },
   
 }));
 
@@ -29,10 +27,18 @@ const Header = () => {
     // <div className={classes.root}>
       <AppBar position="static" className={classes.root}>
         <Toolbar>
-          {/* <img src={logo} alt="reddit" className={classes.logo} /> */}
-          <Typography variant="h6" className={classes.title} >
-            Tidder
+          <img src="newlog.png" alt="reddit" />
+          <Typography variant="h3" className={classes.title} >
+              ...Tidder
           </Typography>
+          
+              <SearchIcon />
+         
+
+          <Button color="inherit">Hot</Button>
+          <Button color="inherit">Top</Button>
+          <Button color="inherit">Best</Button>
+
         </Toolbar>
       </AppBar>
     // </div>  
