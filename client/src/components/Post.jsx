@@ -1,33 +1,37 @@
 import React from 'react';
-// import { makeStyles } from '@bit/mui-org.material-ui.styles';
 // import Paper from '@bit/mui-org.material-ui.paper';
-// import Grid from '@bit/mui-org.material-ui.grid';
-// import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(10),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-//   },
-// }));
 
-const Post = ({commentList}) => {
+const useStyles = makeStyles(theme => ({
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: '#d7dadc',
+    background: "#1a1a1b",
+    maxWidth: 400,
+    height: 250,
+  },
 
-// const classes = useStyles();
+}));
+
+const Post = ({commentList, handleClick, id}) => {
+  const classes = useStyles();
 
   return (
-    <div className="wrap" >
-      {/* <Grid item xs={3}>
-        <Paper className={classes.paper}>xs</Paper>
-      </Grid> */}
-      {commentList.comments.map((comment) => (
-        <span>{comment} </span>
-      ))}
-    </div>
+    
+      <Grid item xs={12} sm={6} md= {3} aria-describedby={id} onClick={(e) => {handleClick(e, commentList)}}>
+
+        <Paper className={classes.paper}> 
+
+          {commentList.comments[0]} 
+
+        </Paper>
+        
+      </Grid>
+
   );
 }
 

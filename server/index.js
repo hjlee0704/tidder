@@ -21,31 +21,38 @@ app.get('/api/reddit/hot', (req, res) => {
         title: hot.data.data.children[post].data.title,
         comments: [],
         index: post,
+        img: hot.data.data.children[post].data.thumbnail,
+        link: `http://www.reddit.com${hot.data.data.children[post].data.permalink}`,
       };
       const link = hot.data.data.children[post].data.permalink.slice(0, -1);
-      axios.get(`http://www.reddit.com${link}.json?limit=4`)
+      axios.get(`http://www.reddit.com${link}.json?limit=3`)
         .then(commentIndex => {
-          let count = 0;
-          commentIndex.data[1].data.children.map((comment, index) => {
-            if (typeof comment.data.body === 'undefined') {
+          let count = [];
+          // console.log(commentIndex.data[1].data.children);
+          commentIndex.data[1].data.children.map((comment) => {
+            if (typeof comment.data.body === 'undefined' || comment.data.body.includes('Join Our Discord Server') || comment.data.body.includes('Hello! This is just a quick reminder for')) {
               //console.log('undefined');
-              count++
-            } else if (comment.data.body.includes('I am a bot')) {
+              count.push(0);
+            } else if (comment.data.body.includes('I am a bot') || comment.data.body.includes('Hello and welcome to') || comment.data.body.includes('The following alternative links are available')) {
               //console.log('pass');
-              count++
+              count.push(1);
+            } else if (comment.data.body.includes('[removed]')) {
+              //console.log('pass');
+              count.push(2);
             } else {
               singlePost.comments.push(comment.data.body);
-              count++;
+              count.push(3);;
             }
+            console.log(count);
           })
           redditPosts.push(singlePost);
-          // console.log(count);
-          console.log(post);
-          if(redditPosts.length === 25 && count === 4) {
+          console.log(count);
+           
+          if(redditPosts.length === 25 && commentIndex.data[1].data.children[2]) {
             redditPosts.sort((a, b) => parseFloat(a.index) - parseFloat(b.index));
+            console.log(count);
             return res.send(redditPosts);
           }
-          //console.log(redditPosts);
         })
       }
 

@@ -22,5 +22,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    modulesDirectories: ['node_modules']
   }
 };

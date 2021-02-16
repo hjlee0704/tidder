@@ -1,39 +1,78 @@
 import React from 'react';
 import Post from './Post';
-// import { makeStyles } from '@bit/mui-org.material-ui.styles';
-// import Paper from '@bit/mui-org.material-ui.paper';
-// import Grid from '@bit/mui-org.material-ui.grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(10),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-//   },
-// }));
+
+
+const useStyles = makeStyles((theme) => ({
+
+  root: {
+    flexGrow: 1,
+    overflow: 'hidden',
+    padding: theme.spacing(2, 3),
+
+  },
+  typography: {
+    padding: theme.spacing(2),
+  },
+}));
 
 const Posts = ({ comments }) => {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [title, setTitle] = React.useState('');
+
+
+  const handleClick = (event, commentList) => {
+    setAnchorEl(event.currentTarget);
+    getTitle(commentList);
+
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const getTitle = (input) => {
+    setTitle(input);
+  }
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
-    <div>
-      {comments.map((commentList) => (
-        < Post commentList={commentList} />
-      ))}
+    <div className={classes.root}>
+        <Grid container direction="row" justify="center" alignItems="center" spacing={2} border={1} >
+          {comments.map((commentList) => (
+             < Post commentList={commentList} key={commentList.index} handleClick={handleClick} id={id} />         
+          ))}         
+        </Grid>
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>
+          <Link href={title.link} color="inherit">
+            {title.title}
+            <img src={title.img}/>
+          </Link>
+        </Typography>
+      </Popover>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <Grid container container direction="column" spacing={3}>
-  //       {/* <Grid item xs>
-  //         <Paper className={classes.paper}>xs</Paper>
-  //       </Grid> */}
-  //       <Post />
-  //     </Grid>
-  //   </div>
-  // );
 }
 
 export default Posts;

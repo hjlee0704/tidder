@@ -1,16 +1,7 @@
-const mysql = require('mysql');
+const mongoose = require('mongoose');
 
-const db = mysql.createConnection({
-  user: 'root',
-  database: 'groceries'
-});
+const mongoUri = 'mongodb://mongo:27017/tidder';
 
-db.connect((err) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('Connected to database.');
-  }
-});
+const db = mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 module.exports = db;

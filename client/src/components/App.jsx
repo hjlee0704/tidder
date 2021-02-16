@@ -3,6 +3,7 @@ import Header from './Header';
 import Posts from './Posts';
 import axios from 'axios';
 
+
 const App = () => {
   const [comments, setComments] = useState([]);
 
@@ -15,16 +16,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    getComments(() => {
-      console.log(comments);
-    });
+    getComments();
 
   },[]);
 
   return (
     <div className="wrapper">
-      {/* <Header /> */}
-      <Posts comments ={comments}/>
+      <Header />
+      <Posts comments ={comments} />
+      
 
     </div>
   );
