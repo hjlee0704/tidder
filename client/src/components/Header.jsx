@@ -34,7 +34,7 @@ const Header = () => {
       <AppBar position="static" className={classes.root}>
         <Toolbar>
           <img src="newlog.png" alt="reddit" />
-          <Typography variant="h3" className={classes.title} >
+          <Typography variant="h3" className={classes.title} component={Link} to="/" color="inherit" style={{ textDecoration: 'none' }}>
               ...Tidder
           </Typography>
           

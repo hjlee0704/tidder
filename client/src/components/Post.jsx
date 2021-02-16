@@ -45,8 +45,7 @@ const Post = ({commentList, handleClick, id}) => {
   const classes = useStyles();
 
   return (
-    
-      <Grid item xs={12} sm={6} md= {3} aria-describedby={id} onClick={(e) => {handleClick(e, commentList)}} zeroMinWidth>
+      <Grid item xs={12} sm={6} md={4} lg= {3} aria-describedby={id} onClick={(e) => {handleClick(e, commentList)}} zeroMinWidth>
 
         {/* <Paper className={classes.paper}> 
 
@@ -60,12 +59,11 @@ const Post = ({commentList, handleClick, id}) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <img src={commentList.img}/>
+              <img src={commentList.img} alt=''/>
             </CardActions>
         </Card>
 
       </Grid>
-
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './Post';
+import TopSingle from './TopSingle';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Popover from '@material-ui/core/Popover';
@@ -47,7 +47,7 @@ const Top = ({ comments }) => {
     <div className={classes.root}>
         <Grid container direction="row" justify="center" alignItems="center" spacing={2} border={1} >
           {comments.map((commentList) => (
-             < Post commentList={commentList} key={commentList.index} handleClick={handleClick} id={id} />         
+             < TopSingle commentList={commentList} key={commentList.index} handleClick={handleClick} id={id} />         
           ))}         
         </Grid>
         <Popover
@@ -67,7 +67,6 @@ const Top = ({ comments }) => {
         <Typography className={classes.typography}>
           <Link href={title.link} color="inherit">
             {title.title}
-            {/* <img src={title.img}/> */}
           </Link>
         </Typography>
       </Popover>
