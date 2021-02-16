@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const BestSingle = ({commentList, handleClick, id}) => {
+const TopSingle = ({commentList, handleClick, id}) => {
   const classes = useStyles();
 
   return (
@@ -69,4 +69,4 @@ const BestSingle = ({commentList, handleClick, id}) => {
   );
 }
 
-export default BestSingle;
+export default TopSingle;

@@ -21,60 +21,59 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Best = () => (<div> <h1>About</h1> </div>);
 
-// const Best = ({ comments }) => {
-//   const classes = useStyles();
-//   const [anchorEl, setAnchorEl] = React.useState(null);
-//   const [title, setTitle] = React.useState('');
+const Best = ({ comments }) => {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [title, setTitle] = React.useState('');
 
 
-//   const handleClick = (event, commentList) => {
-//     setAnchorEl(event.currentTarget);
-//     getTitle(commentList);
+  const handleClick = (event, commentList) => {
+    setAnchorEl(event.currentTarget);
+    getTitle(commentList);
 
-//   };
+  };
 
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-//   const getTitle = (input) => {
-//     setTitle(input);
-//   }
-//   const open = Boolean(anchorEl);
-//   const id = open ? 'simple-popover' : undefined;
+  const getTitle = (input) => {
+    setTitle(input);
+  }
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
-//   return (
-//     <div className={classes.root}>
-//         <Grid container direction="row" justify="center" alignItems="center" spacing={2} border={1} >
-//           {comments.map((commentList) => (
-//              < BestSingle commentList={commentList} key={commentList.index} handleClick={handleClick} id={id} />         
-//           ))}         
-//         </Grid>
-//         <Popover
-//         id={id}
-//         open={open}
-//         anchorEl={anchorEl}
-//         onClose={handleClose}
-//         anchorOrigin={{
-//           vertical: 'top',
-//           horizontal: 'center',
-//         }}
-//         transformOrigin={{
-//           vertical: 'top',
-//           horizontal: 'center',
-//         }}
-//       >
-//         <Typography className={classes.typography}>
-//           <Link href={title.link} color="inherit">
-//             {title.title}
-//             <img src={title.img}/>
-//           </Link>
-//         </Typography>
-//       </Popover>
-//     </div>
-//   );
-// }
+  return (
+    <div className={classes.root}>
+        <Grid container direction="row" justify="center" alignItems="center" spacing={2} border={1} >
+          {comments.map((commentList) => (
+             < BestSingle commentList={commentList} key={commentList.index} handleClick={handleClick} id={id} />         
+          ))}         
+        </Grid>
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>
+          <Link href={title.link} color="inherit">
+            {title.title}
+            <img src={title.img}/>
+          </Link>
+        </Typography>
+      </Popover>
+    </div>
+  );
+}
 
 export default Best;
