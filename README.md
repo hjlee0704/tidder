@@ -7,6 +7,9 @@
   Anthony%20Lee-blue?&style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
 
+### Let's have fun with tidder?! reddit!?
+![ToggleLightDark](https://imgur.com/goQYWbd.gif)
+
 ## About
 
 This application is for anyone enjoys Reddit. The idea was what if you could see the comment before the title of Reddit post? So on this application, you get to look at the user top comment first before looking at title!
