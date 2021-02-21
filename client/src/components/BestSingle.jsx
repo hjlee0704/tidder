@@ -47,12 +47,6 @@ const BestSingle = ({commentList, handleClick, id}) => {
   return (
     
       <Grid item xs={12} sm={6} md={4} lg= {3} aria-describedby={id} onClick={(e) => {handleClick(e, commentList)}} zeroMinWidth>
-
-        {/* <Paper className={classes.paper}> 
-
-          {commentList.comments[0]} 
-
-        </Paper> */}
           <Card className={classes.root} >
             <CardContent>
               <Typography variant="body2" component="p">

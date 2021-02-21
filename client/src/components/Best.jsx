@@ -6,8 +6,6 @@ import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-
-
 const useStyles = makeStyles((theme) => ({
 
   root: {

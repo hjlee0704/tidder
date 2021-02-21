@@ -30,17 +30,13 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    // <div className={classes.root}>
       <AppBar position="static" className={classes.root}>
         <Toolbar>
           <img src="newlog.png" alt="reddit" />
           <Typography variant="h3" className={classes.title} component={Link} to="/" color="inherit" style={{ textDecoration: 'none' }}>
               ...Tidder
-          </Typography>
-          
-              <SearchIcon />
-         
-
+          </Typography>         
+          <SearchIcon />
           <Button color="inherit" component={Link} to="/">Hot</Button>
           <Button color="inherit" component={Link} to="/top">Top</Button>
           <Button color="inherit" component={Link} to="/best">Best</Button>

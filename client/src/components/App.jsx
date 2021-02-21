@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Posts from './Posts';
 import Best from './Best';
@@ -9,20 +9,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
-
-// const useStyles = makeStyles((theme) => ({
-
-//   root: {
-//     flexGrow: 1,
-//     overflow: 'hidden',
-//     padding: theme.spacing(2, 3),
-
-//   },
-
-// }));
-
-
 
 const App = () => {
   const [comments, setComments] = useState([]);

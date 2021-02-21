@@ -67,7 +67,6 @@ const Posts = ({ comments }) => {
         <Typography className={classes.typography}>
           <Link href={title.link} color="inherit">
             {title.title}
-            {/* <img src={title.img}/> */}
           </Link>
         </Typography>
       </Popover>
